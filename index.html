@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Rook Scorecard</title>
+		<script
+	  src="https://code.jquery.com/jquery-3.5.0.min.js"
+	  integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+	  crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row pt-2">
+				<div class="col-3"></div>
+				<div class="col-6">
+					<h2 id="title" class="text-center text-large">Rook Scorecard</h2>
+				</div>
+				<div class="col-3">
+					<button type="button" class="btn btn-primary btn-md float-right" data-toggle="modal" data-target="#settings-modal">Settings</button>
+				</div>
+			</div>
+		</div>
+		<p class="text-center lead">
+			A simple scorecard for the game of Rook.
+		</p>
+		<p class="text-center">It is <span id="current-dealer"></span>'s turn to deal. Let's play!</p>
+
+		<div class="table-responsive">
+			<table id="score-table" class="table table-striped">
+				<thead class="thead-light">
+					<tr>
+						<th>Round</th>
+						<th>
+							<span id="p0-label" class="player-label table-info" data-default="P1">P1</span>
+							<input id="p0-label-form" class="form-control form-control-sm player-label-form" type="text">
+						</th>
+						<th>
+							<span id="p1-label" class="player-label" data-default="P2">P2</span>
+							<input id="p1-label-form" class="form-control form-control-sm player-label-form" type="text">
+						</th>
+						<th>
+							<span id="p2-label" class="player-label" data-default="P3">P3</span>
+							<input id="p2-label-form" class="form-control form-control-sm player-label-form" type="text">
+						</th>
+						<th>
+							<span id="p3-label" class="player-label" data-default="P4">P4</span>
+							<input id="p3-label-form" class="form-control form-control-sm player-label-form" type="text">
+						</th>
+						<th>Bid</th>
+						<th>Bidding Player</th>
+						<th>Trump Color</th>
+						<th>Partner</th>
+						<th>Bid made?</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="table-info">
+						<td>Total</td>
+						<td class="p0-score-total"></td>
+						<td class="p1-score-total"></td>
+						<td class="p2-score-total"></td>
+						<td class="p3-score-total"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- Settings -->
+		<div class="modal fade" id="settings-modal" tabindex="-1" role="dialog" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title">Gameplay Settings</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		      	<form class="form-inline">
+		      		<div class="col-5">
+			      		<div class="form-group">
+			      			<div class="form-check form-check-inline">
+			      				<input class="form-check-input mr-sm-2" type="checkbox" value="" id="settings-callpartners" checked>
+				      			<label class="form-check-label" for="settings-callpartners">Call Partners</label>
+							</div>
+			      		</div>
+			      		<div class="form-group">
+			      			<div class="form-check form-check-inline">
+			      				<input class="form-check-input mr-sm-2" type="checkbox" value="" id="settings-shootthemoon" checked>
+				      			<label class="form-check-label" for="settings-shootthemoon">Shoot the Moon</label>
+							</div>
+			      		</div>
+			      	</div>
+			      	<div class="col-7">
+			      		<div class="form-group">
+						    <input type="number" class="form-control mr-sm-2" id="settings-winningscore" value="500" min="1" max="9999">
+						    <label class="col-form-label" for="settings-winningscore">Winning Score</label>
+						</div>
+						<div class="form-group">
+						    <input type="number" class="form-control mr-sm-2" id="settings-maxpoints" value="180" min="1" max="9999">
+						    <label class="col-form-label" for="settings-maxpoints">Max Points per Round</label>
+						</div>
+			      	</div>
+			    </form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary" id="save-settings" data-dismiss="modal">Save changes</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<script src="script.js"></script>
+	</body>
+</html>
