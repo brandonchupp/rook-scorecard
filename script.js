@@ -134,22 +134,22 @@ function computeScores(bid) {
 
 	if (MAX_SCORE - opposing_score >= bid) {
 		// Set the score for the bidder
-		$('.' + bidder_id.replace('-label', '-score')).first().text(MAX_SCORE - opposing_score);
+		$('.' + bidder_id.replace('-label', '-score')).last().text(MAX_SCORE - opposing_score);
 		// Set the score for the partner
-		$('.' + partner_id.replace('-label', '-score')).first().text(MAX_SCORE - opposing_score);
+		$('.' + partner_id.replace('-label', '-score')).last().text(MAX_SCORE - opposing_score);
 		other_players.forEach(function(player) {
-			$('.' + player.replace('-label', '-score')).first().text(opposing_score);
+			$('.' + player.replace('-label', '-score')).last().text(opposing_score);
 		});
 		$('.bid-failure').removeClass('bid-failure');
 		$('.bid-success').show().removeClass('bid-success');
 		$('.score-button').hide().removeClass('score-button');
 	} else {
 		// Set the score for the bidder
-		$('.' + bidder_id.replace('-label', '-score')).first().text('-' + bid);
+		$('.' + bidder_id.replace('-label', '-score')).last().text('-' + bid);
 		// Set the score for the partner
-		$('.' + partner_id.replace('-label', '-score')).first().text('-' + bid);
+		$('.' + partner_id.replace('-label', '-score')).last().text('-' + bid);
 		other_players.forEach(function(player) {
-			$('.' + player.replace('-label', '-score')).first().text(opposing_score);
+			$('.' + player.replace('-label', '-score')).last().text(opposing_score);
 		});
 		$('.bid-success').hide().removeClass('bid-success');
 		$('.bid-failure').show().removeClass('bid-failure');
