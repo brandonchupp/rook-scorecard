@@ -2,6 +2,9 @@
 
 A simple scoresheet for the game Rook which automates the scoring process. Scoring is simple: just compute the opposing team's score!
 
+![Scorecard screenshot](/sample.png?raw=true "Scorecard screenshot")
+
+
 ## Features
 * Current dealer tracking
 * Four players
